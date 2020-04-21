@@ -1,0 +1,2 @@
+class ProfilePage < ApplicationRecord
+end
