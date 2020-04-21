@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # SQLite version 3.x
+=======
+# SQLite. Versions 3.8.0 and up are supported.
+>>>>>>> 0e97edcb26debf12044f118baf1d1528a3a857b1
 #   gem install sqlite3
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
@@ -6,7 +10,11 @@
 #
 default: &default
   adapter: sqlite3
+<<<<<<< HEAD
   pool: 5
+=======
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+>>>>>>> 0e97edcb26debf12044f118baf1d1528a3a857b1
   timeout: 5000
 
 development:
