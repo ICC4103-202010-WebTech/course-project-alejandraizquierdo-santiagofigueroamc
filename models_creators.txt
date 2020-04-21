@@ -1,0 +1,14 @@
+Person:
+rails generate model Person name:string last_name:string username:string email_address:string password:string last_signed:datetime profile_picture:string biography:text address:string company:integer
+
+Post:
+rails generate model Post owner:integer event:integer date:datetime information:text
+
+MessageInbox:
+rails generate model MessageInbox messages
+
+ProfilePage:
+rails generate model ProfilePage picture:string full_name:string short_bio: text location:string
+
+Message:
+rails generate model Message owner:integer destinatary:integer date:datetime information:text
