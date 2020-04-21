@@ -1,0 +1,74 @@
+Index: app/models/person.rb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>class Person < ActiveRecord::Base\n  has_many :events\n  has_many :persons\n  has_one :message_inbox\n  has_many :messages, through::message_inbox\n  belongs_to :organization\n  validates :name, presence: true\n  validates :last_name, presence: true\n  validates :password, presence: true\n  validates :email, presence: true\n  validates :username, presence: true\n  validates :adress, presence: true\n  validates :email, confirmation: true\n  validates :email, uniqueness: true\n  validates :username, uniqueness: true\ngit\n\n\nend\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/models/person.rb	(revision 55117b89ea02af329ff5a3503989d0aa09729cdd)
++++ app/models/person.rb	(date 1587449825406)
+@@ -8,6 +8,7 @@
+   validates :last_name, presence: true
+   validates :password, presence: true
+   validates :email, presence: true
++  validates :email, confirmation: { case_sensitive: false }, format: { with: /\A(\S+)@(.+)\.(\S+)\z/}
+   validates :username, presence: true
+   validates :adress, presence: true
+   validates :email, confirmation: true
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># README\nNames: Alejandra Izquierdo. Santiago Figueroa\n\nUsernames: alejandraIzquierdo. SantiagoFigueroaMc\n\nThis README would normally document whatever steps are necessary to get the\napplication up and running.\n\nThings you may want to cover:\n\n* Ruby version\n\n* System dependencies\n\n* Configuration\n\n* Database creation\n\n* Database initialization\n\n* How to run the test suite\n\n* Services (job queues, cache servers, search engines, etc.)\n\n* Deployment instructions\n\n* ...\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- README.md	(revision 55117b89ea02af329ff5a3503989d0aa09729cdd)
++++ README.md	(date 1587449825348)
+@@ -3,6 +3,47 @@
+ 
+ Usernames: alejandraIzquierdo. SantiagoFigueroaMc
+ 
++Ruby v 2.6.5
++
++1\. Get all events created by certain user. 
++
++2\. Get all users belonging to an organization.
++
++3\. Get all public events in an organization.
++
++4\. Get all private events in an organization.
++
++5\. Get all guests that have been invited to a certain event.
++
++6\. Get all guests that have voted for a date option in a certain event.
++
++7\. Get all comments written by users on a specific event.
++
++8\. Get all comments written by a specific user on all events.
++
++9\. Get all users with administrative privileges in an organization.
++
++10\. Get all users with administrative privileges in the system.
++
++11\. Users should have a unique username and/or email address, so we will attempt to create two users with the same 
++unique attribute.
++
++This is done by restricting the field with validates :uniquenes=true
++
++12\. E-mail addresses should be well-formed. We will attempt to try to update a model containing an ill-formatted email 
++address.
++
++This is checked in the model with a format and a regex.
++
++13\. Explain what should happen model-wise if an event is deleted and guests have already cast votes. Explain how your 
++model layer is well-behaved in this scenario.
++
++14\. Explain what should happen model-wise if an organization is deleted and events have been already created within 
++the organization. Explain how your model layer is well-behaved in this scenario.
++
++15\. Explain what should happen model-wise if a user is deleted and the user has already created organizations, events 
++and/or comments. Explain how your model layer is well-behaved in this scenario.
++
+ This README would normally document whatever steps are necessary to get the
+ application up and running.
+ 
