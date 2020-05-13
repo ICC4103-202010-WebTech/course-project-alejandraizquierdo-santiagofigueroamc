@@ -1,4 +1,7 @@
 class Person < ActiveRecord::Base
+  belongs_to :person
+  has_many :messages
+
   has_many :events
   has_many :persons
   has_one :message_inbox
@@ -8,6 +11,7 @@ class Person < ActiveRecord::Base
   validates :last_name, presence: true
   validates :password, presence: true
   validates :email, presence: true
+  validates :email, confirmation: { case_sensitive: false }, format: { with: /\A(\S+)@(.+)\.(\S+)\z/}
   validates :username, presence: true
   validates :adress, presence: true
   validates :email, confirmation: true

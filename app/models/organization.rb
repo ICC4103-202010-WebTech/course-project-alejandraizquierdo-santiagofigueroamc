@@ -3,7 +3,7 @@ class Organization < ActiveRecord::Base
   has_many :persons
   has_one :message_inbox
   has_many :messages, through::message_inbox
-  has_many :perssons
+  has_many :persons
   validates :name, presence: true
   validates :password, presence: true
   validates :email, presence: true
