@@ -1,7 +1,6 @@
 # README
 Names: Alejandra Izquierdo. Santiago Figueroa
 
-
 Usernames: alejandraIzquierdo. SantiagoFigueroaMc
 
 Ruby v 2.6.5
