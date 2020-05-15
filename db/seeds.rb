@@ -26,6 +26,12 @@ Person.create(
     address: "sesame street 2254")
 
 # Events
-
+Event.create(
+    title: "grandma's lunch",
+    description: "Family reunion at grandma's house",
+    event_creator_id:2)
 
 # Organizations
+Organization.create(
+    Name: "Jumbo"
+)
