@@ -33,5 +33,22 @@ Event.create(
 
 # Organizations
 Organization.create(
-    Name: "Jumbo"
-)
+    name: "Jumbo",
+    address: "Camino El Alba 11969",
+    email: "contacto@jumbo.cl",
+    username: "jumboadmin",
+    password: "jumboadmin")
+
+Organization.create(
+    name: "Ripley",
+    address: "Avenida Presidente Kennedy 5413",
+    email: "contacto@ripley.cl",
+    username: "ripleyadmin",
+    password: "ripleyadmin")
+
+Organization.create(
+    name: "Universidad de los Andes",
+    address: "Mons. Álvaro del Portillo 12.455",
+    email: "contacto@uandes.cl",
+    username: "uandesadmin",
+    password: "uandesadmin")
