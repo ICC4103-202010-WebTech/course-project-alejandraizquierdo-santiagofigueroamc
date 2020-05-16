@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :event do
-    resources :comment
+  get 'welcome/index'
+
+  resources :events do
+    resources :comments
   end
+
+  root 'welcome#index'
 end
