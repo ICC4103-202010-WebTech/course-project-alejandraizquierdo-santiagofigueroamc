@@ -5,11 +5,11 @@ one:
   Username: MyString
   Email: MyString
   Password: MyString
-  Address{100}: MyString
+  Address: MyString
 
 two:
   Name: MyString
   Username: MyString
   Email: MyString
   Password: MyString
-  Address{100}: MyString
+  Address: MyString
