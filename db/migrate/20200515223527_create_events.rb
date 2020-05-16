@@ -4,7 +4,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :Title, limit: 30
       t.string :Address, limit: 100
       t.string :Description, limit: 200
-      t.Boolean :SelectManual
+      t.boolean :SelectManual
       t.date :FinalDate
 
       t.timestamps
