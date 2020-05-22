@@ -1,7 +1,6 @@
 class Post < ApplicationRecord
-  belongs_to :event
   validate :content, presence:true
-  belongs_to :people
+  belongs_to :user
   has_many :comments
 
 end

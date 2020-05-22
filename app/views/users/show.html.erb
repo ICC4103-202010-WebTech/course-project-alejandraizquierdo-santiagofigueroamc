@@ -1,9 +1,27 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  Bienvenido <%= @user.first_name %> <%= @user.last_name %>
+  Bienvenido <%= @user.first_name %> <%= @user.last_name %> | <%= link_to 'View profile', edit_user_path(@user) %>
 </p>
 
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>My events</h2>
+      <% @user.events.each do |event| %>
+        <p>
+          <%= event.title %> <%= link_to 'Show', user_event_path(event) %>
+        </p>
+      <% end %>
+    </div>
+    <div class="col">
+      <h2>Other events</h2>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p>
+  link_to 'Create event', new_event_path
+</p>
+
+<p>
+  <%= link_to 'Back', users_path %>
+</p>

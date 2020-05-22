@@ -10,22 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_180728) do
+ActiveRecord::Schema.define(version: 2020_05_22_224111) do
 
 # Could not dump table "comments" because of following StandardError
 #   Unknown type 'event' for column 'reference'
 
-# Could not dump table "event_dates" because of following StandardError
-#   Unknown type 'event' for column 'reference'
-
-  create_table "events", force: :cascade do |t|
-    t.string "Title", limit: 30
-    t.string "Address", limit: 100
-    t.string "Description", limit: 200
-    t.boolean "SelectManual"
-    t.date "FinalDate"
+  create_table "event_dates", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer "suscriptors"
+    t.integer "event_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_event_dates_on_event_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title", limit: 50
+    t.string "address", limit: 200
+    t.text "description", limit: 250
+    t.boolean "select_manual"
+    t.datetime "final_date"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -57,4 +66,6 @@ ActiveRecord::Schema.define(version: 2020_05_22_180728) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "event_dates", "events"
+  add_foreign_key "events", "users"
 end

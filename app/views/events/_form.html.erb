@@ -1,21 +1,8 @@
 <%= form_with model: @event, local: true do |form| %>
-
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-
-  <p>
-    <%= form.label :address %><br>
-    <%= form.text_field :address %>
-  </p>
-
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+  <h2>Create event</h2>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>

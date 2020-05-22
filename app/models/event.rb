@@ -1,12 +1,5 @@
 class Event < ApplicationRecord
-
-  validates :title, presence: true
-  validates :address, presence: true
-  validates :description, presence: true
-  has_many :event_dates
-
-  after_create do |event|
-    updated_at_in_database event
-  end
-
+  belongs_to :user
+  has_many :comments, dependent: :destroy
+  has_many :event_dates, dependent: :destroy
 end
