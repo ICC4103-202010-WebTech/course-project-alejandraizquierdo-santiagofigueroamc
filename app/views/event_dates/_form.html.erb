@@ -1,0 +1,15 @@
+<%= form_with(model: [ @event_date, @event.event_dates.build ], local: true) do |form| %>
+
+  <p>
+    <%= form.label :start_date %><br>
+    <%= form.text_field :start_date %>
+  </p>
+  <p>
+    <%= form.label :end_date %><br>
+    <%= form.text_field :end_date %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>

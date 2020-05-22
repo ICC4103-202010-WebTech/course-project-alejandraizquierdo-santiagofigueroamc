@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  resources :persons
-
-  resources :events do
-    resources :comments
+  resources :users do
+    resources :events do
+      resources :comments
+    end
   end
 
   root 'welcome#index'

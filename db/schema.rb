@@ -10,21 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_230138) do
+ActiveRecord::Schema.define(version: 2020_05_22_180728) do
 
-  create_table "comments", force: :cascade do |t|
-    t.string "SenderID"
-    t.string "Content", limit: 250
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+# Could not dump table "comments" because of following StandardError
+#   Unknown type 'event' for column 'reference'
 
-  create_table "event_dates", force: :cascade do |t|
-    t.datetime "StartDate"
-    t.datetime "EndDate"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+# Could not dump table "event_dates" because of following StandardError
+#   Unknown type 'event' for column 'reference'
 
   create_table "events", force: :cascade do |t|
     t.string "Title", limit: 30
@@ -48,6 +40,19 @@ ActiveRecord::Schema.define(version: 2020_05_15_230138) do
   create_table "posts", force: :cascade do |t|
     t.integer "SenderID"
     t.string "Content", limit: 250
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username"
+    t.string "email"
+    t.string "password"
+    t.datetime "last_signed"
+    t.text "biography"
+    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
