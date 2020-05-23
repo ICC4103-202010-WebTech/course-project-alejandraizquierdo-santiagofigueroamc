@@ -1,5 +1,5 @@
 <p>
-  Bienvenido <%= @user.first_name %> <%= @user.last_name %> | <%= link_to 'View profile', edit_user_path(@user) %>
+  Bienvenido <%= @user.first_name %> <%= @user.last_name %> | <%= link_to 'Edit profile', edit_user_path(@user) %>
 </p>
 
 <div class="container">
@@ -8,9 +8,13 @@
       <h2>My events</h2>
       <% @user.events.each do |event| %>
         <p>
-          <%= event.title %> <%= link_to 'Show', user_event_path(event) %>
+          <%= event.title %> <%= link_to 'Show', user_event_path(@user, @event) %>
         </p>
       <% end %>
+
+      <p>
+        <%= render 'events/form' %>
+      </p>
     </div>
     <div class="col">
       <h2>Other events</h2>
@@ -18,9 +22,7 @@
   </div>
 </div>
 
-<p>
-  link_to 'Create event', new_event_path
-</p>
+
 
 <p>
   <%= link_to 'Back', users_path %>
