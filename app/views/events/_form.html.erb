@@ -13,12 +13,12 @@
     <%= form.text_area :description %>
   </p>
   <p>
-    <%= form.label :select_manual %><br>
-    <%= form.check_box :select_manual %>
+    <%= check_box_tag(:select_manual) %>
+    <%= label_tag(:select_manual, "Select date manually") %>
   </p>
   <p>
     <%= form.label :final_date %><br>
-    <%= form.date_field :final_date %>
+    <%= date_field(:event, :final_date) %>
   </p>
 
   <div class="actions">

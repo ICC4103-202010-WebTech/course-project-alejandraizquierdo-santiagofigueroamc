@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.find(params[:user_id])
+    @events = Event.all
   end
 
   def new
@@ -8,13 +8,21 @@ class EventsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:id])
-    @event = @user.events.create(event_params)
+    @event = Event.new(event_params)
     redirect_to event_path(@event)
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.json { render :show, status: :created, location: @event }
+      else
+        format.html { render :new }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
   def event_params
-    params.require(:event).permit(:title, :address, :description, :select_manual, :final_date)
+    params.fetch(:event, {})
   end
 end
