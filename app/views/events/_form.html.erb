@@ -13,8 +13,8 @@
     <%= form.text_area :description %>
   </p>
   <p>
-    <%= check_box_tag(:select_manual) %>
-    <%= label_tag(:select_manual, "Select date manually") %>
+    <%= form.label :select_manual %>
+    <%= form.check_box :select_manual %>
   </p>
   <p>
     <%= form.label :final_date %><br>

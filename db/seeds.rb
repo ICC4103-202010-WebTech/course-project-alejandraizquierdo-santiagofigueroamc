@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Users (Person)'s
-Person.create(
+User.create(
     first_name: 'Alejandra',
     last_name: 'Izquierdo',
     username: 'aleIzquierdo',
@@ -16,7 +16,7 @@ Person.create(
     biography: "This is Ale's biography",
     address: "sesame street 1221")
 
-Person.create(
+User.create(
     first_name: 'Santiago',
     last_name: 'Figueroa',
     username: 'sfigueroa',
@@ -28,27 +28,4 @@ Person.create(
 # Events
 Event.create(
     title: "grandma's lunch",
-    description: "Family reunion at grandma's house",
-    event_creator_id:2)
-
-# Organizations
-Organization.create(
-    name: "Jumbo",
-    address: "Camino El Alba 11969",
-    email: "contacto@jumbo.cl",
-    username: "jumboadmin",
-    password: "jumboadmin")
-
-Organization.create(
-    name: "Ripley",
-    address: "Avenida Presidente Kennedy 5413",
-    email: "contacto@ripley.cl",
-    username: "ripleyadmin",
-    password: "ripleyadmin")
-
-Organization.create(
-    name: "Universidad de los Andes",
-    address: "Mons. Álvaro del Portillo 12.455",
-    email: "contacto@uandes.cl",
-    username: "uandesadmin",
-    password: "uandesadmin")
+    description: "Family reunion at grandma's house")

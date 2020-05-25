@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_224111) do
+ActiveRecord::Schema.define(version: 2020_05_25_141046) do
 
 # Could not dump table "comments" because of following StandardError
 #   Unknown type 'event' for column 'reference'

@@ -13,6 +13,10 @@
       <p>
         <%= link_to "Check users", users_path %>
       </p>
+      <p>
+        <%= button_to "Login", '/login', method: :get%>
+        <%= button_to "Sign Up", '/users/new', method: :get%>
+      </p>
     </div>
   </div>
 </div>

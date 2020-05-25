@@ -6,14 +6,14 @@
   <div class="row">
     <div class="col">
       <h2>My events</h2>
-      <% @user.events.each do |event| %>
+      <% @events.each do |event| %>
         <p>
-          <%= event.title %> <%= link_to 'Show', user_event_path(@user, @event) %>
+          <%= event.title %> <%= link_to 'Show', event_path(@event) %>
         </p>
       <% end %>
 
       <p>
-        <%= render 'events/form' %>
+        <%= link_to 'Create event', new_user_path %>
       </p>
     </div>
     <div class="col">
@@ -21,8 +21,6 @@
     </div>
   </div>
 </div>
-
-
 
 <p>
   <%= link_to 'Back', users_path %>
