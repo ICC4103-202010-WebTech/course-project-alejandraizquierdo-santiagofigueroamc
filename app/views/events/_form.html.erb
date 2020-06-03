@@ -1,0 +1,28 @@
+<%= form_with(model: [ @user, @user.events.build ], local: true) do |form| %>
+  <h3>Create event</h3>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :address %><br>
+    <%= form.text_field :address %>
+  </p>
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= form.label :select_manual %>
+    <%= form.check_box :select_manual %>
+  </p>
+  <p>
+    <%= form.label :final_date %><br>
+    <%= date_field(:event, :final_date) %>
+  </p>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>
