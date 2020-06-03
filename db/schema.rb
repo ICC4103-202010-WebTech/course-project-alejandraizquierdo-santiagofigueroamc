@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_141046) do
+ActiveRecord::Schema.define(version: 2020_06_03_214220) do
 
 # Could not dump table "comments" because of following StandardError
 #   Unknown type 'event' for column 'reference'
@@ -31,10 +31,8 @@ ActiveRecord::Schema.define(version: 2020_05_25_141046) do
     t.text "description", limit: 250
     t.boolean "select_manual"
     t.datetime "final_date"
-    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -67,5 +65,4 @@ ActiveRecord::Schema.define(version: 2020_05_25_141046) do
   end
 
   add_foreign_key "event_dates", "events"
-  add_foreign_key "events", "users"
 end
