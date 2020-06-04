@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  resources :users, only: [:new, :create, :index, :show, :edit, :destroy]
+  resources :users do
+    resources :events, shallow: true
+  end
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'
-
-  resources :events
 
   root 'welcome#index'
 end

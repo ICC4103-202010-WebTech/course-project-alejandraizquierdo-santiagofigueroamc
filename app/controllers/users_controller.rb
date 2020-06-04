@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @user.events.build
   end
 
   # GET /users/1/edit
@@ -76,6 +77,7 @@ class UsersController < ApplicationController
           :address,
           :email,
           :password,
-          :biography)
+          :biography,
+          events_attributes: [:id, :title, :address, :description, :select_manual, :final_date, :_destroy])
     end
 end

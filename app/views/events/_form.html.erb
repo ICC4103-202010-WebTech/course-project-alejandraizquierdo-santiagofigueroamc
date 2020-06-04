@@ -1,4 +1,4 @@
-<%= form_with(model: [ @user, @user.events.build ], local: true) do |form| %>
+<%= form_with model: @event, local: true do |form| %>
   <h3>Create event</h3>
   <p>
     <%= form.label :title %><br>
@@ -21,8 +21,9 @@
     <%= date_field(:event, :final_date) %>
   </p>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit class: ["btn", "btn-primary"] %>
+    <%= link_to "Back", users_path, class: ["btn", "btn-secondary"] %>
   </div>
 
 <% end %>
