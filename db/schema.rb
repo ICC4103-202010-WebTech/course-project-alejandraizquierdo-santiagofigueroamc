@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_003256) do
-
-# Could not dump table "comments" because of following StandardError
-#   Unknown type 'event' for column 'reference'
+ActiveRecord::Schema.define(version: 2020_06_22_000809) do
 
   create_table "event_dates", force: :cascade do |t|
     t.datetime "start_date"
@@ -26,46 +23,41 @@ ActiveRecord::Schema.define(version: 2020_06_04_003256) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "title", limit: 50
-    t.string "address", limit: 200
-    t.text "description", limit: 250
+    t.string "title"
+    t.string "address"
+    t.text "description"
     t.boolean "select_manual"
     t.datetime "final_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.date "Date"
-    t.integer "SenderID"
-    t.integer "RecieverID"
-    t.string "Information"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.integer "SenderID"
-    t.string "Content", limit: 250
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.string "username"
     t.string "email"
     t.string "password"
-    t.datetime "last_signed"
+    t.datetime "last_signed_date"
     t.text "biography"
-    t.string "address"
+    t.string "location"
+    t.integer "organization_id", null: false
+    t.boolean "organization_admin"
+    t.boolean "system_admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["organization_id"], name: "index_users_on_organization_id"
+    t.index ["username"], name: "index_users_on_username"
   end
 
   add_foreign_key "event_dates", "events"
-  add_foreign_key "events", "users"
+  add_foreign_key "users", "organizations"
 end

@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @user.events.build
   end
 
   # GET /users/1/edit
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user }
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -70,14 +69,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(
-          :first_name,
-          :last_name,
-          :username,
-          :address,
-          :email,
-          :password,
-          :biography,
-          events_attributes: [:id, :title, :address, :description, :select_manual, :final_date, :_destroy])
+      params.fetch(:user, {})
     end
 end

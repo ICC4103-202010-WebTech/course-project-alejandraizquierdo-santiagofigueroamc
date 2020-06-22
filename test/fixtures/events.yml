@@ -5,13 +5,11 @@ one:
   address: MyString
   description: MyText
   select_manual: false
-  final_date: 2020-05-22 18:41:11
-  user: one
+  final_date: 2020-06-21 20:07:06
 
 two:
   title: MyString
   address: MyString
   description: MyText
   select_manual: false
-  final_date: 2020-05-22 18:41:11
-  user: two
+  final_date: 2020-06-21 20:07:06

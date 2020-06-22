@@ -1,21 +1,25 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  last_name: MyString
+  name: MyString
   username: MyString
   email: MyString
   password: MyString
-  last_signed: 2020-05-22 13:45:25
+  last_signed_date: 2020-06-21 20:05:48
   biography: MyText
-  address: MyString
+  location: MyString
+  organization: one
+  organization_admin: false
+  system_admin: false
 
 two:
-  first_name: MyString
-  last_name: MyString
+  name: MyString
   username: MyString
   email: MyString
   password: MyString
-  last_signed: 2020-05-22 13:45:25
+  last_signed_date: 2020-06-21 20:05:48
   biography: MyText
-  address: MyString
+  location: MyString
+  organization: two
+  organization_admin: false
+  system_admin: false
