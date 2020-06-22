@@ -1,0 +1,17 @@
+<%= form_with(model: invited, local: true) do |form| %>
+  <% if invited.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(invited.errors.count, "error") %> prohibited this invited from being saved:</h2>
+
+      <ul>
+        <% invited.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

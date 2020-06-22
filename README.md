@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Uml file: 
+https://app.lucidchart.com/invitations/accept/206a7cee-da2a-441c-a33d-30985cc541ca

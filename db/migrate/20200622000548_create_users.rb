@@ -8,8 +8,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.datetime :last_signed_date
       t.text :biography
       t.string :location
-      t.references :organization, null: false, foreign_key: true
-      t.boolean :organization_admin
       t.boolean :system_admin
 
       t.timestamps

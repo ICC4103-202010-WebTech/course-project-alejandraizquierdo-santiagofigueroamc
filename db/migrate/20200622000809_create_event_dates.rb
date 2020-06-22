@@ -3,7 +3,7 @@ class CreateEventDates < ActiveRecord::Migration[6.0]
     create_table :event_dates do |t|
       t.datetime :start_date
       t.datetime :end_date
-      t.integer :suscriptors
+      t.integer :subscribers
       t.references :event, null: false, foreign_key: true
 
       t.timestamps

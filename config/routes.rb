@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  #get 'welcome/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resource :users
+  resources :users
+
+  resource :events do
+    resources :event_dates
+  end
 
   root "welcome#index"
 end
