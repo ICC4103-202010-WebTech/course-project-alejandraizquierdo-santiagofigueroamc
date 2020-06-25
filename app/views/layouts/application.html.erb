@@ -26,10 +26,6 @@
             <li class="nav-item"><%= link_to "Invitations", user_invitations_path, class: "nav-link" %></li>
           <%end %>
         </ul>
-        <form class="form-inline mr-3" id="search_form">
-          <input class="form-control mr-sm-2" id="search_box" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" id="search_button" type="submit">Search</button>
-        </form>
         <span class="d-inline ml-3">
         <% if admin_signed_in? %>
         <%=link_to "Sign out", destroy_admin_session_path, method: :delete %>

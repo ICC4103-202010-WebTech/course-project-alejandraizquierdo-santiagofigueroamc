@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :members
   end
 
-  resource :events do
+  resources :events do
     resources :event_dates
     resources :comments
   end
