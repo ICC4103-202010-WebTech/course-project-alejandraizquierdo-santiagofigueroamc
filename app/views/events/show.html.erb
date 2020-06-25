@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<%= @event.title %>
+
+<p>
+  Comments
+</p>
+<%= render @event.comments %>
+<%= render partial: 'comments/form' %>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

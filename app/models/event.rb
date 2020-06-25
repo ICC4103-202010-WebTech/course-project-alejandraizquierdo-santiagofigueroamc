@@ -1,6 +1,5 @@
 class Event < ApplicationRecord
   has_many :event_dates
-  has_many :inviteds
   has_one_attached :flayer
 
   validates :title, :description, presence: true

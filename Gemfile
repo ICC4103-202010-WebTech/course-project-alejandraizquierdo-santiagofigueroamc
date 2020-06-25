@@ -31,6 +31,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Bootstrap gem
 gem 'bootstrap', '~> 4.5.0'
 
+gem 'pagy', '~> 3.8'
+
+# Add devise for user authentication, registration, etc.
+gem 'devise', '~> 4.7'
+
+# Add CanCanCan for user authorization
+gem 'cancancan', '~> 3.1'
+
 # Jquery
 gem 'jquery-rails'
 

@@ -1,0 +1,13 @@
+<div class="new-event-date-otf">
+  <%= fields_for 'event[event_dates_attributes]', event_date, index: Time.now.utc.to_formatted_s(:number) do |event_date_form| %>
+    <%= event_date_form.label :start_date %>
+    <%= event_date_form.datetime_local_field :start_date, class: "form-control" %>
+    <%= event_date_form.label :end_date %>
+    <%= event_date_form.datetime_local_field :end_date, class: "form-control" %>
+    <br>
+    <button type="button" class="btn btn-danger remove-event-date-btn-otf">
+      <i class="far fa-minus-square"></i>
+    </button>
+    <hr>
+  <% end %>
+</div>

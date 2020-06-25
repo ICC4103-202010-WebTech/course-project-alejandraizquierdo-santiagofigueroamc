@@ -15,9 +15,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.username %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Loggin', root_path %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,5 +27,5 @@
   <%= link_to 'New User', new_user_path %>
 </p>
 <p>
-  <%= link_to 'Back', controller: 'welcome' %>
+  <%= link_to 'Back', :back %>
 </p>
