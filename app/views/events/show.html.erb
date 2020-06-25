@@ -1,12 +1,59 @@
-<p id="notice"><%= notice %></p>
-
-<%= @event.title %>
-
-<p>
-  Comments
-</p>
-<%= render @event.comments %>
-<%= render partial: 'comments/form' %>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<div class="row ml-0 mt-3">
+  <h2>Event: <%=@event.title %></h2>
+</div>
+<div class="row ml-0 mt-3">
+  <h2><%= image_tag(@event.flayer.attached? ? @event.flayer.variant(resize_to_limit: [400, 300]) : "thumbnail.svg", width: "400px", data: { toggle: "modal", target: "#viewFlayer" }) %></h2>
+</div>
+<div class="row ml-0 mt-3">
+  <ul class="list-unstyled">
+    <li><strong>Description:</strong> <%=@event.description %></li>
+    <li><strong>Address:</strong> <%=@event.address %></li>
+  </ul>
+</div>
+<% if admin_signed_in? %>
+  <div class="row ml-0 mt-2 mb-3">
+    Invite link (work in progress)
+    &nbsp;
+    <%= link_to "Edit Event", edit_event_path, class: ["btn", "btn-primary"] %>
+  </div>
+<% end %>
+<div class="row ml-0 mt-3">
+  <p><strong>Event dates:</strong></p>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Participants</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @event.event_dates.each_with_index do |event_date, i| %>
+      <tr>
+        <td><%= event_date.description %></td>
+        <td><%= event_date.subscribers %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="row ml-0 mt-3 mb-3">
+  <%= link_to 'Back', events_path, class: ['btn', 'btn-primary'] %>
+</div>
+<div class="modal" id="viewFlayer" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= @event.title %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= image_tag @event.flayer.attached? ? @event.flayer : "thumbnail.svg", width: "100%" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

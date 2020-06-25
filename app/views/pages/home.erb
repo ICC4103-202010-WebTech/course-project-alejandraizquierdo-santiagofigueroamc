@@ -1,22 +1,4 @@
 <div class="row ml-0 mt-3">
-  <h1>Home</h1>
-  <p>
-    <div class="row ml-0 mt-2 mb-3">
-    <% if user_signed_in? %>
-        Welcome <%= @user.name %>
-      </div>
-    <% else %>
-      <div class="row ml-0 mt-2 mb-3">
-        <%= link_to "Loggin", users_path %>
-      </div>
-    <% end %>
-  </p>
+  <h2>Next Events</h2>
 </div>
-
-<div class="row ml-0 mt-3">
-  <h2>Upcoming Events</h2>
-</div>
-
-<div>
-  <%= render partial: 'events/event_list', locals: { events: @events } %>
-</div>
+<%= render partial: 'events/event_list', locals: { events: @events } %>
