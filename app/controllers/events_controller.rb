@@ -63,6 +63,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def new_event_date
+    @event_date = EventDate.new
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -72,6 +79,6 @@ class EventsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def event_params
       params.fetch(:event, {}).permit(:id, :title, :description, :address, :flayer,
-                                      event_dates_attributes: [:id, :start_date, :end_date, :subscribers, :_destroy])
+                                      event_dates_attributes: [:id, :start_date, :end_date, :_destroy])
     end
 end

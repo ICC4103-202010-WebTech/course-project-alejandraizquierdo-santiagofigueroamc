@@ -6,5 +6,5 @@ class Event < ApplicationRecord
 
   validates :title, :description, presence: true
   validates :final_date, not_in_past: true
-  validates :event_venue, presence: true
+  validates :address, presence: true
 end

@@ -1,5 +1,6 @@
 class EventDatesController < ApplicationController
   before_action :set_event_date, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /event_dates
   # GET /event_dates.json
@@ -14,6 +15,7 @@ class EventDatesController < ApplicationController
 
   # GET /event_dates/new
   def new
+    @event = Event.find(params[:event_id])
     @event_date = EventDate.new
   end
 
@@ -24,11 +26,12 @@ class EventDatesController < ApplicationController
   # POST /event_dates
   # POST /event_dates.json
   def create
+    @event = Event.find(params[:event_id])
     @event_date = EventDate.new(event_date_params)
-
+    @event_date.event = @event
     respond_to do |format|
       if @event_date.save
-        format.html { redirect_to @event_date, notice: 'Event date was successfully created.' }
+        format.html { redirect_to @event, notice: "'#{@event_date.description}' event date was successfully created." }
         format.json { render :show, status: :created, location: @event_date }
       else
         format.html { render :new }
@@ -69,6 +72,6 @@ class EventDatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_date_params
-      params.fetch(:event_date, {})
+      params.fetch(:event_date, {}).permit(:start_date, :end_date)
     end
 end
