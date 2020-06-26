@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     #resources :comments
   end
 
-  resource :user, only: [:show] do
+  resource :user, only: [:show, :edit] do
     resources :invitations, only: [:show, :index, :destroy], shallow: true
   end
 

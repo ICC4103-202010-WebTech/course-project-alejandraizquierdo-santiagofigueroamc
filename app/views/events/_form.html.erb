@@ -1,5 +1,6 @@
 <div class="row ml-0">
   <%= form_with model: event, local: true do |form| %>
+    <%= errors_for event %>
     <div class="form-group">
       <%= form.label :title %>
       <%= form.text_field :title, class: "form-control" %>
@@ -34,8 +35,12 @@
           </div>
         <% end %>
         <% if action_name == 'new' %>
-          <%= link_to "Add Date", new_event_event_date_path,
-                      class: [ 'btn', 'btn-primary'], remote: true %>
+          Add date link (pending)
+          <!-- TODO: Add multiple dates -->
+          <%= link_to "Add Date", root_path,
+                     class: [ 'btn', 'btn-primary'], remote: true %>
+          <!-- END TODO -->
+
         <% end %>
       </div>
     </div>

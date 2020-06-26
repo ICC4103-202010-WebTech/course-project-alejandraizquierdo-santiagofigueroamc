@@ -3,10 +3,11 @@
     <div class="card-body">
       Welcome, <%= current_user.name %>
     </div>
-  </div>
-  <div class="card mt-4">
     <div class="card-body">
       <%= link_to "Create Event", new_event_path, class: ["btn", "btn-primary"] %>
+    </div>
+    <div class="card-body">
+      Link to edit profile (pending)
     </div>
   </div>
 <% end %>
