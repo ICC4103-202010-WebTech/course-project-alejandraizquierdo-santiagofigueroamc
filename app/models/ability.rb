@@ -6,6 +6,7 @@ class Ability
   def initialize(person)
     if person.present? and person.class.name == "User"
       can :manage, User, user_id: person.id
+      can :manage, Invitation, user_id: person.id
       can :manage, Event, :all
     elsif person.present? and person.class.name == "Admin"
       can :manage, :all

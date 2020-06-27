@@ -38,6 +38,31 @@
     </tbody>
   </table>
 </div>
+<div class="row ml-0 mt-3">
+  <p><strong>Comments</strong></p>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Commenter</th>
+      <th>Comment</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @event.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user.name %></td>
+        <td><%= comment.body %></td>
+        <td>report (pending)</td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <p>Add comment</p>
+  <%= render 'comments/form' %>
+
+</div>
 <div class="row ml-0 mt-3 mb-3">
   <%= link_to 'Back', events_path, class: ['btn', 'btn-primary'] %>
 </div>

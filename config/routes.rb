@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :event_dates, shallow: true
-    #resources :comments
+    resources :comments, shallow: true
   end
 
-  resource :user, only: [:show, :edit] do
+  resource :user do
     resources :invitations, only: [:show, :index, :destroy], shallow: true
   end
 

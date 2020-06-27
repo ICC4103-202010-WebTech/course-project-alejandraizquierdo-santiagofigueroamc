@@ -4,10 +4,10 @@
     1. [DONE] Log in with email address
     2. [TODO] Log in with Google authentication.
     3. [DONE] Log out. 
-2. [1 OUT OF 3] Registration
+2. [2 OUT OF 3] Registration
     1. [DONE] User registration. 
     2. [TODO] Change password.
-    3. [TODO] Password recovery.
+    3. [DONE] Password recovery.
 3. [TODO] User Administration
     1. [TODO] New user. Can be done from outside the admin session.
     2. [TODO] View user details.

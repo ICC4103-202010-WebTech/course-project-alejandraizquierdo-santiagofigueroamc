@@ -14,7 +14,6 @@
   <body>
   <header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <%= link_to "WT Project", root_path, class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,6 +23,7 @@
           <li class="nav-item"><%= link_to "Events", events_path, class: "nav-link" %></li>
           <% if user_signed_in? %>
             <li class="nav-item"><%= link_to "Invitations", user_invitations_path, class: "nav-link" %></li>
+            <li class="nav-item"> <%= link_to "My profile", @current_user, class: "nav-link" %> </li>
           <%end %>
         </ul>
         <span class="d-inline ml-3">
@@ -34,7 +34,7 @@
         <% elsif user_signed_in? %>
         <%=link_to "Sign out", destroy_user_session_path, method: :delete %>
         <% end %>
-      </span>
+        </span>
       </div>
     </nav>
   </header>
