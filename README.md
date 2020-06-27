@@ -46,7 +46,7 @@
     4. [TODO] Vote for event date. 
     5. [TODO] Invite guests.
     6. [TODO] Delete event. 
-    7. Edit event.
+    7. [DONE] Edit event.
     8. [TODO] Add comment.
     9. [TODO] View comments.
     10. [TODO] Report event as inappropriate.
