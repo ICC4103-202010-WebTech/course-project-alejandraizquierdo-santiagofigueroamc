@@ -64,12 +64,11 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
     end
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.fetch(:user, {})
-
+      params.fetch(:user, {}).permit(:id, :username, :name, :biography, :location, :avatar)
     end
 end

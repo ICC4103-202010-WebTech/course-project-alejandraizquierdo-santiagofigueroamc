@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row ml-0 mt-3">
-  <h2><%= image_tag(@user.profile_picture.attached? ? @user.profile_picture.variant(resize_to_limit: [400, 300]) : "thumbnail.svg", width: "400px", data: { toggle: "modal", target: "#viewFlyer" }) %></h2>
+  <h2><%= image_tag(@user.profile_picture.attached? ? @user.profile_picture.variant(resize_to_limit: [100, 100]) : "thumbnail.svg", width: "100px", data: { toggle: "modal", target: "#viewFlyer" }) %></h2>
 </div>
 
 <div class="row ml-0 mt-3">
   <ul class="list-unstyled">
     <li><strong>Username:</strong> <%= @user.username %></li>
+    <li><strong>Name:</strong> <%= @user.name %></li>
     <li><strong>Email:</strong> <%= @user.email %></li>
     <li><strong>Location:</strong> <%= @user.location %></li>
     <li><strong>Biography:</strong> <%= @user.biography %></li>
   </ul>
 </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', :back %>
+<%= link_to 'Edit', edit_user_path(@user) %>
